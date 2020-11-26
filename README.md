@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <p align="center"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--X2WDI7b6--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/2jlduu7hh4ry0q77akap.png" width="500"></p>
 
 <p align="center">
@@ -82,4 +81,3 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 # pengaduan-app
 Aplikasi Pelaporan Pengaduan Masyarakat Menggunakan Framework Laravel 7 + AJAX
 
->>>>>>> afdc0975511e1a562a7b4610dbcaffb549ad155e
