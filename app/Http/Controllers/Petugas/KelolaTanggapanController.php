@@ -31,6 +31,9 @@ class KelolaTanggapanController extends Controller
     }
     public function tanggapi(Request $request)
     {
+        $this->validate($request, [
+            'tanggapan' => 'required'
+        ]);
         $tanggapan = new Tanggapan;
         $tanggapan->id_pengaduan = $request->id_pengaduan;
         $tanggapan->tgl_tanggapan = $request->tgl_tanggapan;

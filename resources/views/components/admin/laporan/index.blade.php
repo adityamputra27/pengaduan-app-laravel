@@ -74,6 +74,9 @@
                     <h1 class="h3 mb-2 text-gray-800">Laporan Aduan</h1>
                 </div>
                 <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="fa fa-info-circle"></i> Perlu Diingat Bahwa Laporan Aduan Ini Adalah Data Yang Sudah Di Verifikasi, Di Berikan Tanggapan Dan Statusnya Adalah Selesai.
+                    </div>
                     <form action="{{ route('laporan_aduan') }}" method="POST">
                         @csrf
                         <div class="form-row">

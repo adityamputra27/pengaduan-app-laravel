@@ -102,11 +102,6 @@
           <span>History Login</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Pengaturan</span></a>
-      </li>
       <hr class="sidebar-divider d-none d-md-block">
       @elseif(Auth::guard('petugas')->user()->role == 'petugas')
       <hr class="sidebar-divider">
@@ -122,7 +117,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('kelola_aduan') }}">Lihat Aduan</a>
             <a class="collapse-item" href="{{ route('kelola_tanggapan') }}">Tanggapan Aduan</a>
-            <a class="collapse-item" href="">Aduan yang Di Tolak</a>
+            <a class="collapse-item" href="{{ route('aduan_tolak') }}">Aduan yang Di Tolak</a>
           </div>
         </div>
       </li>

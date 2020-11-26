@@ -44,13 +44,13 @@
                                                 </span>
                                                 <span class="text">Restore</span>
                                             </a>
-                                        @endif
-                                        <a href="#" data-toggle="modal" data-target="#confModal" data-reject="{{ route('delete_aduan', $item->id) }}" data-imgreject="{{ asset('assets') }}/admin/img/reject-illustration.svg" class="btn btn-icon-split btn-sm btn-danger">
+                                            <a href="#" data-toggle="modal" data-target="#confModal" data-reject="{{ route('delete_aduan', $item->id) }}" data-imgreject="{{ asset('assets') }}/admin/img/reject-illustration.svg" class="btn btn-icon-split btn-sm btn-danger">
                                             <span class="icon text-white-100">
                                             <i class="fas fa-trash"></i>
                                             </span>
                                             <span class="text">Hapus</span>
                                         </a>
+                                        @endif
                                         <a href="#" data-no="{{ $item->id_pengaduan }}" data-nik="{{ $item->nik }}" data-pelapor="{{ $item->masyarakat->nama_lengkap }}" data-tanggal="{{ date('d-m-Y', strtotime($item->tgl_pengaduan)) }}" data-foto="{{ asset('assets/uploads/'.$item->foto) }}"
                                         data-status="{{ $item->status }}" data-laporan="{!! $item->isi_laporan !!}"
                                         data-toggle="modal" data-target="#detModal" data-title="Detail Aduan No. : <b>{{ $item->id_pengaduan }}</b>"
@@ -97,7 +97,7 @@
 <!-- END MODAL VERIFY -->
 <!-- MODAL DETAIL -->
 <div class="modal fade" id="detModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"></h5>

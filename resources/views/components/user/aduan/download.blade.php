@@ -66,7 +66,9 @@
     <b>Bukti (Foto) :</b>
     <table class="table table-bordered">
         <tr>
-            <th colspan="3" class="text-center"><img src="{{ asset('assets/uploads/'.$detail->foto) }}" width="200" alt=""></th>
+            @foreach(json_decode($detail->foto) as $foto)
+            <th colspan="3" class="text-center"><img src="{{ asset('assets/uploads/'.$foto) }}" width="100" alt=""></th>
+            @endforeach
         </tr>
     </table>
     <p>Berikut hasil tanggapan daripada aduan yang anda ajukan, aduan tersebut akan di proses dan direalisasikan oleh petugas dan pihak yang bersangkutan lainnya.</p>
@@ -83,7 +85,7 @@
             <th>{{ $detail->petugas->nama_petugas }}</th>
         </tr>
     </table>
-    <div style="margin-top: 4em;"></div>
+    <div style="margin-top: 10em;"></div>
     <b>Isi Tanggapan :</b>
     <table class="table table-bordered">
         <tr>

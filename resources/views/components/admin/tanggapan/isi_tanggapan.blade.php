@@ -21,7 +21,8 @@
                 </div>
                 <div class="form-group">
                     <label for="">Isi Tanggapan :</label>
-                    <textarea name="tanggapan" id="" required class="form-control"></textarea>
+                    <textarea name="tanggapan" id="isi_tanggapan" class="form-control"></textarea>
+                    @error('tanggapan')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
                 <!-- <div class="form-group">
                     <label for="">Status :</label>
@@ -40,10 +41,22 @@
                     </select>
                 </div> -->
                 <div class="form-group">
-                    <button class="btn btn-success btn-block"><i class="fa fa-check-circle"></i> Simpan Tanggapan</button>
+                    <button type="submit" class="btn btn-success btn-block"><i class="fa fa-check-circle"></i> Simpan Tanggapan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 @endsection
+@push('javascript')
+<script>
+    ClassicEditor
+    .create( document.querySelector( '#isi_tanggapan' ) )
+    .then( editor => {
+            console.log( editor );
+    } )
+    .catch( error => {
+            console.error( error );
+    } );
+</script>
+@endpush

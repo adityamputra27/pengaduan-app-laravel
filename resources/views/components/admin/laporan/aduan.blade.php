@@ -112,7 +112,7 @@
             <tr>
                 <th>Isi Tanggapan</th>
                 <th>:</th>
-                <th>{{ $de->tanggapan }}</th>
+                <th>{!! $de->tanggapan !!}</th>
             </tr>
             <tr>
                 <th>Tanggal Aduan</th>
@@ -126,6 +126,7 @@
             </tr>
         </tbody>
     </table>
+    <hr>
     @endforeach
     </div>
 <body>

@@ -97,9 +97,8 @@
 </section>
 @endsection
 @section('nav-user')
-<li class="active"><a href="{{ url('') }}">Beranda</a></li>
 <li class=""><a href="#"><i class="fa fa-user"></i> Selamat Datang, {{ Auth::guard('masyarakat')->user()->nama_lengkap }}</a></li>
-<li class=""><a href="{{ route('masyarakat_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+<li class=""><a href="#" data-toggle="modal" data-target="#confLogout"><i class="fa fa-sign-out"></i> Logout</a></li>
 @endsection
 @push('javascript')
     <script>

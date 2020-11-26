@@ -104,4 +104,6 @@ Route::group(['middleware' => 'auth:masyarakat'], function(){
     Route::get('/auth/{id}/edit', 'AkunController@edit')->name('profile_masyarakat');
     Route::patch('/auth/{id}/update', 'AkunController@update')->name('auth_update');
     Route::get('/dashboard/{id}/download', 'AduanController@download')->name('download');
+    Route::get('/dashboard/{id}/show', 'AduanController@show')->name('lihat_aduan');
+    Route::post('/dashboard/cari', 'AduanController@cari')->name('cari_aduan');
 });

@@ -39,7 +39,11 @@
   <script src="{{ asset('assets') }}/admin/js/demo/chart-area-demo.js"></script>
   <script src="{{ asset('assets') }}/admin/js/demo/chart-pie-demo.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js'></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  
   @stack('javascript')
 </body>
 </html>

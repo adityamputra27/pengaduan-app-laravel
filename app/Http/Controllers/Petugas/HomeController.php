@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Pengaduan;
 use Auth;
 use DB;
+use Carbon\Carbon;
+use App\Charts\DashboardChart;
 
 class HomeController extends Controller
 {
@@ -25,7 +27,19 @@ class HomeController extends Controller
             $process = Pengaduan::where('status', 'proses')->count();
             $finish = Pengaduan::where('status', 'selesai')->count();
             $latest = Pengaduan::where('status', '0')->paginate(3);
-            return view('components.admin.index', compact('latest', 'all', 'verify', 'process', 'finish'));
+            $data = DB::table('pengaduans')
+                    ->select('tgl_pengaduan', DB::raw('count(*) as total'))
+                    ->groupBy('tgl_pengaduan')
+                    ->pluck('total', 'tgl_pengaduan')->all();
+            for ($i=0; $i <= count($data) ; $i++) { 
+                $colours[] = '#'.substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+            }
+            $chart = new DashboardChart;
+            $chart->labels = (array_keys($data));
+            $chart->dataset = (array_values($data));
+            $chart->colours = $colours;
+
+            return view('components.admin.index', compact('latest', 'all', 'verify', 'process', 'finish', 'chart'));
         }
         return redirect()->route('admin.login');
     }

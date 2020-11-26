@@ -14,7 +14,8 @@
     <div class="container">
         <div class="d-flex justify-content-center">
             <div class="col-lg-12">
-                <div class="card">
+                <a href="{{ route('user_dashboard') }}" class="btn btn-primary"><i class="fa fa-chevron-left"></i> Kembali</a>
+                <div class="card mt-3">
                     <div class="card-header">
                         <h4 class="text-success">Silahkan Buat Aduan Disini!</h4>
                     </div>
@@ -42,13 +43,28 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Bukti Gambar (Foto)</label>
-                                <div class="custom-file">
-                                    {{-- <input type="file" onchange="preview_image();" name="foto[]" id="buktiGambar" required multiple class="custom-file-input">
-                                    <label class="custom-file-label">Pilih File...</label> --}}
-                                    <input type="file" name="foto[]" id="buktiGambar" multiple class="custom-file-input">
-                                    <label class="custom-file-label">Pilih File...</label>
+                                <div class="input-group control-group increment" >
+                                  <input type="file" name="foto[]" class="form-control">
+                                  <div class="input-group-btn"> 
+                                    <button class="btn btn-add btn-success" type="button"><i class="fa fa-plus"></i></button>
+                                  </div>
+                                  <span class="text-danger">@error('foto'){{ $message }}@enderror</span>
+                                </div>
+                                <div class="mt-3 previewFoto1"></div>
+                                <div class="clone hide">
+                                  <div class="control-group2 input-group" style="margin-top:10px">
+                                    <input type="file" name="foto[]" class="form-control">
+                                    <div class="input-group-btn"> 
+                                      <button class="btn btn-remove btn-danger" type="button"><i class="fa fa-times"></i></button>
+                                    </div>
+                                    <span class="text-danger">@error('foto'){{ $message }}@enderror</span>
+                                  </div>
                                 </div>
                                 <div class="mt-3 previewFoto"></div>
+                                <div class="alert alert-primary mt-3">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                    Bukti Gambar (Foto) Minimal 2 atau Lebih dan Ukuran Maksimal Foto Adalah 2MB (Mega Pixel).
+                                </div>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-block"><span class="fa fa-send"></span> Kirim Aduan</button>
@@ -62,10 +78,9 @@
 </section>
 @endsection
 @section('nav-user')
-{{-- <li class="active"><a href="{{ url('') }}">Beranda</a></li> --}}
 <li class=""><a href="#"><i class="fa fa-user"></i> Selamat Datang, {{ Auth::guard('masyarakat')->user()->nama_lengkap }}</a></li>
 <li class=""><a href="{{ url('') }}"><i class="fa fa-edit"></i> Edit Profile</a></li>
-<li class=""><a href="{{ route('masyarakat_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+<li class=""><a href="#" data-toggle="modal" data-target="#confLogout"><i class="fa fa-sign-out"></i> Logout</a></li>
 @endsection
 @push('javascript')
     <script>
@@ -92,23 +107,31 @@
         //         $('#uploads').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'><br>");
         //     }
         // }
-        $(document).ready(function(){
-            var imagesPreview = function(input, placeToInsertImagePreview) {
-            if (input.files) {
-                var filesAmount = input.files.length;
-                for (i = 0; i < filesAmount; i++) {
-                    var reader = new FileReader();
-                    reader.onload = function(event) {
-                        $($.parseHTML('<img width="100" style="padding-left: 10px;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                    }
-                    reader.readAsDataURL(input.files[i]);
-                    }
-                }
-            };
-            $('#buktiGambar').on('change', function() {
-                imagesPreview(this, 'div.previewFoto');
-            });
+        // $(document).ready(function(){
+        //     var imagesPreview = function(input, placeToInsertImagePreview) {
+        //     if (input.files) {
+        //         var filesAmount = input.files.length;
+        //         for (i = 0; i < filesAmount; i++) {
+        //             var reader = new FileReader();
+        //             reader.onload = function(event) {
+        //                 $($.parseHTML('<img width="100" style="padding-left: 10px;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+        //             }
+        //             reader.readAsDataURL(input.files[i]);
+        //             }
+        //         }
+        //     };
+        //     $('#buktiGambar').on('change', function() {
+        //         imagesPreview(this, 'div.previewFoto');
+        //     });
+        // });
+        $(".btn-add").click(function(){ 
+            var html = $(".clone").html();
+            $(".increment").after(html);
         });
+        $("body").on("click",".btn-remove",function(){ 
+            $(this).parents(".control-group2").remove();
+        });
+        // $('.input').imageUploader();
         ClassicEditor
             .create(document.querySelector( '#isi_laporan' ))
             .then(editor => {

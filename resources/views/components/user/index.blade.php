@@ -5,7 +5,7 @@
     <h1>Selamat Datang Di LaporinAjaYuk!</h1>
     <h2>
         LaporinAjaYuk Adalah Sistem Pelaporan Pengaduan Masyarakat Berbasis Website.
-        Silahkan Buat Aduan dan Aspirasimu Disini! Akan Kami Proses dan Akan Kami Realisasikan!</h2>
+        Silahkan Buat Aduanmu Disini! Akan Kami Proses dan Akan Kami Realisasikan!</h2>
     <a href="{{ route('user.login') }}" class="download-btn"><i class="bx bx-log-in-circle"></i> Login Disini!</a>
     <a href="{{ route('user.register') }}" class="download-btn"><i class="bx bx-send"></i> Register Disini!</a>
   </div>
@@ -40,20 +40,20 @@
                   <h4>Login Dengan Akun Yang Sudah Ada</h4>
                   <p>Jika akun anda sudah didaftarkan, silahkan login dengan akun yang suda terdaftar.</p>
                 </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                  <i class="fa fa-plus-circle"></i>
-                  <h4>Buat Aspirasimu!</h4>
-                  <p>Silahkan buat aspirasi dan ikuti ketentuan pembuatannya!</p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-12 icon-box" data-aos="fade-up" data-aos-delay="300">
                   <i class="fa fa-plus-square"></i>
                   <h4>Buat Aduanmu!</h4>
                   <p>Silahkan buat aduan dan ikuti ketentuan pembuatannya!</p>
                 </div>
-                <div class="col-md-12 icon-box" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                   <i class="fa fa-info-circle"></i>
                   <h4>Tunggu Verifikasi dan Tanggapan!</h4>
                   <p>Jika sudah membuat aspirasi / aduan, tunggu aspirasi / aduan tersebut diverifikasi dan ditanggapi oleh pusat.</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="fa fa-download"></i>
+                  <h4>Unduh Hasil!</h4>
+                  <p>Silahkan Unduh Hasil Aduan Dan Tanggapan! Jika Aduan Sudah Di Verifikasi dan Di Tanggapi!</p>
                 </div>
               </div>
             </div>
@@ -77,20 +77,20 @@
         <div class="accordion-list">
           <ul>
             <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#accordion-list-1">LaporinAjaYuk Apakah Bisa Membuat Aspirasi atau Aduan? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#accordion-list-1">LaporinAjaYuk Apakah Bisa Membuat Aduan? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
                 <p>
-                  Bisa. Pada LaporinAjaYuk Ini Fitur Utamanya Adalah Membuat Aspirasi dan Aduan yang Kemudian Akan Di Verifikasi Oleh Pusat dan Akan Segera Direalisasikan!
+                  Bisa. Pada LaporinAjaYuk Ini Fitur Utamanya Adalah Membuat Aduan yang Kemudian Akan Di Verifikasi Oleh Pusat dan Akan Segera Direalisasikan!
                 </p>
               </div>
             </li>
             
 
             <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#accordion-list-2" class="collapsed">Adakah Ketentuan Untuk Membuat Aspirasi atau Aduan di LaporinAjaYuk Ini? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#accordion-list-2" class="collapsed">Adakah Ketentuan Untuk Membuat Aduan di LaporinAjaYuk Ini? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="accordion-list-2" class="collapse" data-parent=".accordion-list">
                 <p>
-                  Ada. Untuk Ketentuan Aspirasi dan Aduan Sama. Berikut Ketentuan Tersebut :
+                  Ada. Berikut Ketentuan Tersebut :
                   <ul>
                     <li><span class="fa fa-chevron-circle-right text-success"></span> Tidak Boleh Mengandung SARA, Pornografi, Kata - Kata Kotor atau Hal - Hal yang Bersifat Negatif.</li>
                     <li><span class="fa fa-chevron-circle-right text-success"></span> Pastikan Data yang Diisi Adalah Data yang Benar - Benar Real.</li>
@@ -101,28 +101,28 @@
             </li>
 
             <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#accordion-list-4" class="collapsed">Apakah Aspirasi atau Aduan Akan Ditanggapi dan Segera Direalisasikan? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#accordion-list-4" class="collapsed">Apakah Aduan Akan Ditanggapi dan Segera Direalisasikan? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="accordion-list-4" class="collapse" data-parent=".accordion-list">
                 <p>
-                  Aspirasi atau Aduan Akan Ditanggapi Oleh Petugas yang Berada Di Pusat, Maka Mohon Maaf Apabila Verifikasi Aspirasi atau Aduan Tersebut Memakan Proses yang Agak Lama. Direalisasikannya Aspirasi atau Aduan Tergantung Dari Fakta yang Disampaikan, Maka Petugas Akan Survei Secara Lapangan.
+                  Aduan Akan Ditanggapi Oleh Petugas yang Berada Di Pusat, Maka Mohon Maaf Apabila Verifikasi Aduan Tersebut Memakan Proses yang Agak Lama. Direalisasikannya Aduan Tergantung Dari Fakta yang Disampaikan, Maka Petugas Akan Survei Secara Lapangan.
                 </p>
               </div>
             </li>
             
             <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#accordion-list-5" class="collapsed">Bagaimana Cara Merealisasikan Aspirasi atau Aduan Tersebut? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#accordion-list-5" class="collapsed">Bagaimana Cara Merealisasikan Aduan Tersebut? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="accordion-list-5" class="collapse" data-parent=".accordion-list">
                 <p>
-                  Kami Akan Melapor Kembali Ke Pemerintah dan Dinas yang Terkait, Lalu Melakukan Survei Secara Lapangan.
+                  Kami Akan Melapor Kembali Ke Pemerintah dan Dinas yang Terkait yang Memiliki Tugas dan Wewenang Khusus Dalam Hal Realisasi, Lalu Melakukan Survei Secara Lapangan.
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#accordion-list-3" class="collapsed">Jika Sudah Membuat Aspirasi atau Aduan Adakah Langkah Selanjutnya? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#accordion-list-3" class="collapsed">Jika Sudah Membuat Aduan Adakah Langkah Selanjutnya? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
                 <p>
-                  Jika Sudah Membuat Aspirasi atau Aduan (yang Sudah Di Tanggapi Oleh Pusat), Silahkan Generate atau Download Surat Keterangan Berdasarkan Aspirasi atau Aduan Anda, Untuk Konfirmasi Lebih Lanjut.
+                  Jika Sudah Membuat Aduan (yang Sudah Di Tanggapi Oleh Pusat), Silahkan Generate atau Download Surat Keterangan Berdasarkan Aduan Anda, Sebagai Bukti Tulisan.
                 </p>
               </div>
             </li>
@@ -164,7 +164,7 @@
           </div>
 
           <div class="col-lg-6">
-            <form method="post" role="form" class="php-email-form" data-aos="fade-up">
+            <form method="post" action="#" role="form" class="php-email-form" data-aos="fade-up">
               <div class="form-group">
                 <input placeholder="Your Name" type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validate"></div>

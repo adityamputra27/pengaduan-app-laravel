@@ -35,28 +35,52 @@ class AduanController extends Controller
         //{
             $pengaduan = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
                                     ->orderBy('status', 'ASC')->withTrashed()->get();
+            $jml_pengaduan = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
+                                    ->orderBy('status', 'ASC')->withTrashed()->count();
             $belum = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
                                     // ->where('status', '0')
                                     ->where(function ($query){
                                         $query->where('status', '0');
                                     })
                                     ->get();
+            $jml_belum = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
+                                    // ->where('status', '0')
+                                    ->where(function ($query){
+                                        $query->where('status', '0');
+                                    })
+                                    ->count();
             $proses = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
                                     ->where(function ($query){
                                         $query->where('status', 'proses');
                                     })
                                     ->get();
+            $jml_proses = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
+                                    ->where(function ($query){
+                                        $query->where('status', 'proses');
+                                    })
+                                    ->count();
             $selesai = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
                                     ->where(function ($query){
                                         $query->where('status', 'selesai');
                                     })
                                     ->get();
+            $jml_selesai = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
+                                    ->where(function ($query){
+                                        $query->where('status', 'selesai');
+                                    })
+                                    ->count();
             $ditolak = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
                                     ->where(function ($query){
                                         $query->whereNotNull('deleted_at');
                                     })
                                     ->get();
-            return view('components.user.dashboard', compact('pengaduan', 'belum', 'proses', 'selesai', 'ditolak'));
+            $jml_ditolak = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)
+                                    ->where(function ($query){
+                                        $query->whereNotNull('deleted_at');
+                                    })
+                                    ->count();
+
+            return view('components.user.dashboard', compact('pengaduan', 'belum', 'proses', 'selesai', 'ditolak', 'jml_pengaduan', 'jml_belum', 'jml_proses', 'jml_selesai', 'jml_ditolak'));
         //}
     }
     public function simpan(Request $request)
@@ -80,7 +104,7 @@ class AduanController extends Controller
             $aduan->id_pengaduan = $request->id_pengaduan;
             $aduan->isi_laporan = $request->isi_laporan;
             $aduan->id_kategori = $request->id_kategori;
-            $aduan->foto = implode(',', $data);
+            $aduan->foto = json_encode($data);
             $aduan->tgl_pengaduan = date('Y-m-d H:i:s');
             $aduan->nik = Auth::guard('masyarakat')->user()->nik;
             $aduan->status = '0';
@@ -114,6 +138,32 @@ class AduanController extends Controller
                         ->first();
         $id = DetailLaporanView::where('id_pengaduan', $id)->first();
         $cetak = PDF::loadView('components.user.aduan.download', ['detail' => $detail], ['id' => $id])->setPaper('A4', 'potrait');
-        return $cetak->stream(Auth::guard('masyarakat')->user()->nik.'-'.date('d-M-Y').'.pdf');
+        return $cetak->download(Auth::guard('masyarakat')->user()->nik.'-'.date('d-M-Y').'.pdf');
+    }
+    public function show($id)
+    {
+        $show = Pengaduan::with('kategori_aduan')->where('id_pengaduan', $id)->first();
+        return view('components.user.aduan.show', compact('show'));
+    }
+    public function cari(Request $request)
+    {
+        // $search = Pengaduan::where('id_pengaduan', 'like', '%'.$request->searchAduan.'%')->get();
+        // return json_encode($search);
+        // if ($request->has('q')) {
+        //     $q = $request->q;
+        //     $result = Pengaduan::where('id_pengaduan', 'like', '%'.$q.'%')->get();
+        //     return response()->json(['data' => $result]);
+        // } else {
+        //     return view('components.user.dashboard');
+        // }
+        if (empty($request->searchAduan)) {
+            echo "<div class='alert alert-warning'> <i class='fa fa-exclamation-triangle'></i> <b>Input Kode Aduan Yang Ingin Dicari!</b></div>";
+            // echo "Data Tidak Ada!";
+        }
+        else
+        {
+            $show = Pengaduan::where('id_pengaduan', 'like', '%'.$request->searchAduan.'%')->get();
+            return view('components.user.show-search', compact('show'));
+        }
     }
 }

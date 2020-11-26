@@ -25,7 +25,7 @@
                                 <td>{{ $p->masyarakat->nama_lengkap }}</td>
                                 <td>{{ date('d M Y', strtotime($p->tgl_pengaduan)) }}</td>
                                 <td>
-                                    @foreach(explode(',',$p->foto) as $foto)
+                                    @foreach(json_decode($p->foto) as $foto)
                                         <img src="{{ asset('assets/uploads/'.$foto) }}" width="50" alt="">
                                     @endforeach
                                 </td>
@@ -50,15 +50,15 @@
                                                     </span>
                                                     <span class="text">Verifikasi</span>
                                                 </a>
-                                            @endif
-                                            <a href="#" data-toggle="modal" data-target="#confModal" data-reject="{{ route('tolak_aduan', $p->id) }}" data-imgreject="{{ asset('assets') }}/admin/img/reject-illustration.svg" class="btn btn-icon-split btn-sm btn-danger">
+                                                <a href="#" data-toggle="modal" data-target="#confModal" data-reject="{{ route('tolak_aduan', $p->id) }}" data-imgreject="{{ asset('assets') }}/admin/img/reject-illustration.svg" class="btn btn-icon-split btn-sm btn-danger">
                                                 <span class="icon text-white-100">
                                                 <i class="fas fa-exclamation"></i>
                                                 </span>
                                                 <span class="text">Tolak</span>
                                             </a>
+                                            @endif
                                         @endif
-                                        <a href="#" data-no="{{ $p->id_pengaduan }}" data-nik="{{ $p->nik }}" data-pelapor="{{ $p->masyarakat->nama_lengkap }}" data-tanggal="{{ date('d-m-Y', strtotime($p->tgl_pengaduan)) }}" data-foto="{{ asset('assets/uploads/'.$p->foto) }}"
+                                        <a href="#" data-no="{{ $p->id_pengaduan }}" data-nik="{{ $p->nik }}" data-pelapor="{{ $p->masyarakat->nama_lengkap }}" data-tanggal="{{ date('d-m-Y', strtotime($p->tgl_pengaduan)) }}"
                                         data-status="{{ $p->status }}" data-laporan="{!! $p->isi_laporan !!}"
                                         data-toggle="modal" data-target="#detModal" data-title="Detail Aduan No. : <b>{{ $p->id_pengaduan }}</b>"
                                         class="btn btn-icon-split btn-sm btn-info">
@@ -104,7 +104,7 @@
 <!-- END MODAL VERIFY -->
 <!-- MODAL DETAIL -->
 <div class="modal fade" id="detModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"></h5>
@@ -140,11 +140,6 @@
                         <td><span id="laporan"></span></td>
                     </tr>
                     <tr>
-                        <th>Bukti Foto</th>
-                        <td>:</td>
-                        <td><img width="100" id="foto"></td>
-                    </tr>
-                    <tr>
                         <th>Status Aduan</th>
                         <td>:</td>
                         <td><span id="status"></span></td>
@@ -178,7 +173,7 @@
         let pelapor = button.data('pelapor');
         let tanggal = button.data('tanggal');
         let laporan = button.data('laporan');
-        let foto = button.data('foto');
+        // let foto = JSON.parse(button.data('foto'));
         let status = button.data('status');
         let modal = $(this);
 
@@ -188,7 +183,9 @@
         modal.find('.modal-body #pelapor').text(pelapor);
         modal.find('.modal-body #tanggal').text(tanggal);
         modal.find('.modal-body #laporan').html(laporan);
-        modal.find('.modal-body #foto').attr('src',foto);
+        // $.each(foto, function(){
+        //     modal.find('.modal-body #foto').attr('src','{{ asset("assets/uploads/") }}'+foto);
+        // });
         // modal.find('.modal-body #status').addClass('badge badge-secondary');
         if (status == '0' && status != 'proses' && status != 'selesai') {
             modal.find('.modal-body #status').html('<span class="badge badge-warning">Belum Di Verifikasi</span>');

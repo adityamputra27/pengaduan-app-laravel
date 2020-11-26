@@ -79,13 +79,9 @@
     <div class="row">
       <div class="col-xl-12 col-lg-7">
         <div class="card shadow mb-4">
-          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-success">GRAFIK TOTAL PENGADUAN PER TAHUN</h6>
-          </div>
+          <div class="card-header"><h6 class="m-0 font-weight-bold text-success">GRAFIK SEMUA JUMLAH PENGADUAN BERDASARKAN TANGGAL PENGADUAN</h6></div>
           <div class="card-body">
-            <div class="chart-area">
-              <canvas id="myAreaChart"></canvas>
-            </div>
+            <canvas id="dashboardChart"></canvas>
           </div>
         </div>
       </div>
@@ -134,3 +130,58 @@
   </div>
 </div>
 @endsection
+@push('javascript')
+<script>
+  $(document).ready(function(){
+      var ctx = document.getElementById('dashboardChart').getContext('2d');
+      var chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels:  {!!json_encode($chart->labels)!!} ,
+              datasets: [
+                  {
+                      label: 'Jumlah Aduan Berdasarkan Tanggal',
+                      backgroundColor: {!! json_encode($chart->colours)!!} ,
+                      data:  {!! json_encode($chart->dataset)!!} ,
+                  },
+              ]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                          callback: function(value) {if (value % 1 === 0) {return value;}}
+                      },
+                      scaleLabel: {
+                          display: false
+                      }
+                  }]
+              },
+              yAxis: {
+                  title: {
+                      text: 'Jumlah Aduan'
+                  }
+              },
+              legend: {
+                  labels: {
+                      fontColor: '#122C4B',
+                      fontFamily: "'Muli', sans-serif",
+                      padding: 25,
+                      boxWidth: 25,
+                      fontSize: 14,
+                  }
+              },
+              layout: {
+                  padding: {
+                      left: 10,
+                      right: 10,
+                      top: 0,
+                      bottom: 10
+                  }
+              }
+          }
+      });
+    }); 
+</script>
+@endpush

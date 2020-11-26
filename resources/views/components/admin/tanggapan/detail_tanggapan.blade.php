@@ -50,7 +50,11 @@
                         <tr>
                             <th>Foto</th>
                             <th>:</th>
-                            <td><img width="100" src="{{ asset('assets/uploads/' . $detail->foto) }}" alt=""></td>
+                            <td>
+                                @foreach(json_decode($detail->foto) as $foto)
+                                <img width="100" src="{{ asset('assets/uploads/' . $foto) }}" alt="">
+                                @endforeach
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -73,7 +77,7 @@
                             <th colspan="3">Isi Tanggapan</th>
                         </tr>
                         <tr>
-                            <td colspan="3">{{ $detail->tanggapan }}</td>
+                            <td colspan="3">{!! $detail->tanggapan !!}</td>
                         </tr>
                         <tr>
                             <th>Status</th>

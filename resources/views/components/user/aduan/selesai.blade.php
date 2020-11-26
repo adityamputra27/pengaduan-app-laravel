@@ -4,6 +4,7 @@
             Kategori Aduan : <span class="badge badge-success">{{ $p->kategori_aduan->nama_kategori }}</span>
         </div>
         <div class="card-body">
+            <h5 class="card-text">Kode Aduan : <span class="badge badge-primary">{{ $p->id_pengaduan }}</span></h5>
             <h5 class="card-text">Tanggal : {{ date('d-m-Y', strtotime($p->tgl_pengaduan)) }}</h5>
             <h5 class="card-text">Status :
                 @if($p->deleted_at == null)
@@ -21,7 +22,7 @@
                 @endif
             </h5>
             <div class="btn-group">
-                <a href="#" class="btn btn-sm btn-info mt-2 mb-0"><i class="fa fa-eye"></i> Lihat Aduan</a>
+                <a href="{{ route('lihat_aduan', $p->id_pengaduan) }}" class="btn btn-sm btn-info mt-2 mb-0"><i class="fa fa-eye"></i> Lihat Aduan</a>
                 @if($p->status == 'selesai')
                     <a href="{{ route('download', $p->id_pengaduan) }}" class="btn btn-success btn-sm mt-2 mb-0"><i class="fa fa-download"></i> Unduh</a>
                 @else

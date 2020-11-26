@@ -8,6 +8,7 @@
   <title>LaporinAjaYuk - Home</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
 
   <!-- Favicons -->
   <link href="{{ asset('assets') }}/img/favicon.png" rel="icon">
@@ -22,6 +23,8 @@
   <link href="{{ asset('assets') }}/vendor/aos/aos.css" rel="stylesheet">
   <link href="{{ asset('assets') }}/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('assets') }}/admin/vendor/datatables/dataTables.bootstrap4.min.css">
+  <link href="{{ asset('assets') }}/vendor/jquery/image-uploader.min.css" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets') }}/css/style.css" rel="stylesheet">
 </head>
