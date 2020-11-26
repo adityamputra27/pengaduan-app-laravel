@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fdev.to%2Fshahbaz17%2Flaravel-7-installation-2hji&psig=AOvVaw2E2DDX73NywcHeE9klav6j&ust=1606484368971000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjgzeSqoO0CFQAAAAAdAAAAABAD" width="500"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
