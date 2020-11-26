@@ -79,7 +79,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 =======
-# XII_RPL_1_AdityaMPutra_Aplikasi_Pengaduan_Masyarakat
+# pengaduan-app
 Aplikasi Pelaporan Pengaduan Masyarakat Menggunakan Framework Laravel 7 + AJAX
 
 >>>>>>> afdc0975511e1a562a7b4610dbcaffb549ad155e
